@@ -1,29 +1,26 @@
+function xMarksTheSpot(input) {
+  let quantityOfX = 0;
+  let result;
 
-  const xMarksTheSpot = (input) => {  
-	let QuatX = 0;
-	let a;
-	
-	for (let i = 0; i < input.length; i++) {
-	  let z = input[i];
-	  for (let k = 0; k < z.length; k++) {
-		if (z[k].includes("x")) {
-		  QuatX += 1;
-  
-		  a = [+`${i}`, +`${k}`];
-		  
-		} else if (!z[k].includes("x")) {
-		  continue;
-		}
-		
-	  }
-	}
-	if(QuatX>1){
-	  a =[]
-	}
-	if(a===undefined){
-	  a=[]
-	}
-  
-  
-	return a;
-	}
+  for (let i = 0; i < input.length; i++) {
+    let resOfcycle = input[i];
+    for (let k = 0; k < resOfcycle.length; k++) {
+      if (resOfcycle[k].includes("x")) {
+        quantityOfX += 1;
+
+        result = [+`${i}`, +`${k}`];
+      } else if (!resOfcycle[k].includes("x")) {
+        continue;
+      }
+    }
+  }
+  if (quantityOfX > 1) {
+    result = [];
+  } else {
+  }
+  if (result === undefined) {
+    result = [];
+  }
+
+  return result;
+}
