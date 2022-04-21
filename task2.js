@@ -1,38 +1,29 @@
-Array.prototype.flat = function() {
-	const arr = [];
-	for (let i = 0; i < this.length; i++) {
-	  if (Array.isArray(this[i])) {
-		for(let g = 0; g < this[i].length; g++) {
-		  arr.push(this[i][g])
-		}
-	  } else {
-		arr.push(this[i])
-	  }
-	}
-	
-	return arr
-  }
-  
+
   const xMarksTheSpot = (input) => {  
-	const str = input.flat().join('');
-	const points = [];
-	const len = input.length;
-	let y = 0;
+	let QuatX = 0;
+	let a;
 	
-	for(let x = 0; x < str.length; x++) {
-	  if (str[x] === 'x') {
-		points.push([x - y, y])
-	  }
-	  
-	  if (points.length > 1) {
-		return []
-	  }
-	  
-	  if (x === len) {
-		y++
+	for (let i = 0; i < input.length; i++) {
+	  let z = input[i];
+	  for (let k = 0; k < z.length; k++) {
+		if (z[k].includes("x")) {
+		  QuatX += 1;
+  
+		  a = [+`${i}`, +`${k}`];
+		  
+		} else if (!z[k].includes("x")) {
+		  continue;
+		}
+		
 	  }
 	}
-	
-	return points.flat();
-  }
-xMarksTheSpot(['o','x'],['x','o'])
+	if(QuatX>1){
+	  a =[]
+	}
+	if(a===undefined){
+	  a=[]
+	}
+  
+  
+	return a;
+	}
